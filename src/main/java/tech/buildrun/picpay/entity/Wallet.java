@@ -1,7 +1,6 @@
 package tech.buildrun.picpay.entity;
 
 import jakarta.persistence.*;
-
 import java.math.BigDecimal;
 
 @Entity
@@ -54,10 +53,13 @@ public class Wallet {
 	public boolean isTransferAllowedForWalletType() {
         return this.walletType.equals(WalletType.Enum.USER.get());
     }
+	
 
-    public boolean isBalancerEqualOrGreatherThan(BigDecimal value) {
-        return this.balance.doubleValue() >= value.doubleValue();
-    }
+	public boolean isBalanceEqualOrGreatherThan(BigDecimal value) {
+		
+		return this.balance.doubleValue() >= value.doubleValue();
+	}
+
 
     public void debit(BigDecimal value) {
         this.balance = this.balance.subtract(value);
@@ -122,4 +124,17 @@ public class Wallet {
     public void setWalletType(WalletType walletType) {
         this.walletType = walletType;
     }
+
+
+
+
+
+
+
+
+
+
+
+    
+    
 }

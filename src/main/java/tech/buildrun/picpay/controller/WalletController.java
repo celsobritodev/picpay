@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.validation.Valid;
 import tech.buildrun.picpay.controller.dto.CreateWalletDto;
 import tech.buildrun.picpay.entity.Wallet;
 import tech.buildrun.picpay.service.WalletService;
@@ -22,7 +23,7 @@ public class WalletController {
 	
 	
 	@PostMapping("/wallets")
-	public ResponseEntity<Wallet> createWallet(@RequestBody CreateWalletDto WalletDto) {
+	public ResponseEntity<Wallet> createWallet(@RequestBody @Valid CreateWalletDto WalletDto) {
 		
 		var wallet = walletService.createWallet(WalletDto);
 		
