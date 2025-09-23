@@ -42,7 +42,7 @@ public class Wallet {
 
    
 	public Wallet(String fullName, String cpfCnpj, String email, String password, WalletType walletType) {
-		super();
+	
 		this.fullName = fullName;
 		this.cpfCnpj = cpfCnpj;
 		this.email = email;
