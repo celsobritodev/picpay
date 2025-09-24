@@ -20,12 +20,12 @@ public class WalletNotFoundException extends PicPayException {
 
 	@Override
 	public ProblemDetail toProblemDetail() {
-       var pb = ProblemDetail.forStatus(HttpStatus.UNPROCESSABLE_ENTITY);;
+       var problemDetail = ProblemDetail.forStatus(HttpStatus.UNPROCESSABLE_ENTITY);;
        
-       pb.setTitle("Wallet not found.");
-       pb.setDetail("The specified wallet does not exist. id "+walletId+" .");
+       problemDetail.setTitle("Wallet not found.");
+       problemDetail.setDetail("The specified wallet does not exist. id "+walletId+" .");
        
-       return pb;
+       return problemDetail;
 
 	}
 

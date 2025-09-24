@@ -13,11 +13,11 @@ public class TransferNotAllowedForWalletTypeException extends PicPayException {
 	@Override
 	public ProblemDetail toProblemDetail() {
 		
-		var pb = ProblemDetail.forStatus(HttpStatus.UNPROCESSABLE_ENTITY);
+		var problemDetail = ProblemDetail.forStatus(HttpStatus.UNPROCESSABLE_ENTITY);
 		
-		pb.setTitle("Transfer not allowed for wallet type.");
+		problemDetail.setTitle("Transfer not allowed for wallet type.");
 	  
-		return pb;
+		return problemDetail;
 
 	}
 

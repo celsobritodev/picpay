@@ -15,12 +15,12 @@ public class WalletDataAlreadyExistsException extends PicPayException {
 	
 	@Override
 	public ProblemDetail toProblemDetail() {
-		var pb = ProblemDetail.forStatus(HttpStatus.UNPROCESSABLE_ENTITY);
+		var problemDetail = ProblemDetail.forStatus(HttpStatus.UNPROCESSABLE_ENTITY);
 		
-		pb.setTitle("Wallet data already exists");
-		pb.setDetail(detail);
+		problemDetail.setTitle("Wallet data already exists");
+		problemDetail.setDetail(detail);
 		
-		return pb;
+		return problemDetail;
 	}
 
 }

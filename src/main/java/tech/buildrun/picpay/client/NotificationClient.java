@@ -14,6 +14,7 @@ import tech.buildrun.picpay.entity.Transfer;
 
 public interface NotificationClient {
 	
+
 	@PostMapping
 	ResponseEntity<Void> sendNotification(@RequestBody Transfer transfer);
 

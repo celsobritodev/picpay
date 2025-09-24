@@ -16,33 +16,35 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tb_tansfer`
+-- Table structure for table `wallet`
 --
 
-DROP TABLE IF EXISTS `tb_tansfer`;
+DROP TABLE IF EXISTS `wallet`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tb_tansfer` (
-  `id` binary(16) NOT NULL,
-  `value` decimal(38,2) DEFAULT NULL,
-  `wallet_receiver_id` bigint DEFAULT NULL,
-  `wallet_sender_id` bigint DEFAULT NULL,
+CREATE TABLE `wallet` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `balance` decimal(38,2) DEFAULT NULL,
+  `cpf_cnpj` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `full_name` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `wallet_type_id` bigint DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `FK2v7kkcfes3aomrv8hevqgx6m6` (`wallet_receiver_id`),
-  KEY `FKboynvsfepoeq8ymsyykr9syx5` (`wallet_sender_id`),
-  CONSTRAINT `FK2v7kkcfes3aomrv8hevqgx6m6` FOREIGN KEY (`wallet_receiver_id`) REFERENCES `tb_wallet` (`id`),
-  CONSTRAINT `FKboynvsfepoeq8ymsyykr9syx5` FOREIGN KEY (`wallet_sender_id`) REFERENCES `tb_wallet` (`id`)
+  UNIQUE KEY `UK9dl9jfuvvha96t4o2hpm086o9` (`cpf_cnpj`),
+  UNIQUE KEY `UK98rl3e51t7ft9opqqdy6jrvqg` (`email`),
+  KEY `FKc47ak4pmrcdndmn0h3k4q11tp` (`wallet_type_id`),
+  CONSTRAINT `FKc47ak4pmrcdndmn0h3k4q11tp` FOREIGN KEY (`wallet_type_id`) REFERENCES `tb_wallet_type` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tb_tansfer`
+-- Dumping data for table `wallet`
 --
 
-LOCK TABLES `tb_tansfer` WRITE;
-/*!40000 ALTER TABLE `tb_tansfer` DISABLE KEYS */;
-INSERT INTO `tb_tansfer` VALUES (_binary '\r5Žµ‹ Dy™³\é\Æ8šN',0.00,2,1),(_binary '\"³\Ò\æ\n3B\î˜\ç%\ÇT²j',20.00,3,1),(_binary 'NŒT1\ÚG„µ¼\ähM)',0.00,2,1),(_binary 'ZªCŒ±IÁª\ã\ÝKU“\0',0.00,2,1),(_binary 'g\Ðt \âDd¨D}´“Y\×I',0.00,2,1),(_binary 'ŠsHõ&K´¥;b\âžoI',0.00,2,1),(_binary 'ü\n£hòI\é”\ZùTº\Í',20.00,3,1);
-/*!40000 ALTER TABLE `tb_tansfer` ENABLE KEYS */;
+LOCK TABLES `wallet` WRITE;
+/*!40000 ALTER TABLE `wallet` DISABLE KEYS */;
+/*!40000 ALTER TABLE `wallet` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -54,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-09-23  9:43:46
+-- Dump completed on 2025-09-24  9:25:26
